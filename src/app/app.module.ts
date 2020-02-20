@@ -9,12 +9,17 @@ import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {FormsModule} from '@angular/forms';
+import {CustomerDetailsComponent} from './components/dashboard/customer-details/customer-details.component';
+import { NotFountComponent } from './components/not-fount/not-fount.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    CustomerDetailsComponent,
+    NotFountComponent
   ],
   imports: [
     BrowserModule,
@@ -25,6 +30,7 @@ import {FormsModule} from '@angular/forms';
     FormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [CustomerDetailsComponent]
 })
 export class AppModule { }

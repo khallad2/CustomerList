@@ -17,13 +17,14 @@
       </div>
       <div>
         <!-- Forgot password -->
-        <a href="">Forgot password?</a>
+        <a href="" [ngClass]="{'red-text': loginError.hasError}">Forgot password?</a>
+        <p href="" class="text-danger flex-center" *ngIf="loginError.hasError">{{loginError.error}}</p>
       </div>
     </div>
 
     <!-- Sign in button -->
     <button mdbBtn color="info" block="true" class="my-4" type="button" (click)="signIn()">Sign in</button>
-
+<!--    <p><mdb-error *ngIf="loginError.hasError">{{loginError.error}}</mdb-error></p>-->
     <!-- Register -->
     <p>Not a member?
       <a href="">Register</a>

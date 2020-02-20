@@ -9,8 +9,8 @@ import {Router} from '@angular/router';
 export class AppComponent {
   title = 'CustomerList';
   constructor(private loginService: LoginService, private router: Router) {
-    if (!this.loginService.isLoggedIn) {
-      this.router.navigate(['login']);
-    }
+    // if (!this.loginService.isLoggedIn) {
+    //   this.router.navigate(['login']);
+    // }
   }
 }

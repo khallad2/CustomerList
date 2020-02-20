@@ -1,12 +1,4 @@
-<!--<div class="container">-->
-  <div class="row">
-    <div class="col-md-6 mx-auto">
-      <div class="md-form">
-        <input type="text" class="form-control" [(ngModel)]="searchText" (keyup)="searchItems()" id="search-input"
-               mdbInput>
-        <label for="search-input">Search</label>
-      </div>
-    </div>
+ <div class="row ">
     <table mdbTable #tableEl="mdbTable" stickyHeader="true" hover="true" striped="true" class="z-depth-1">
       <thead class="sticky-top">
       <tr>
@@ -16,11 +8,14 @@
       </tr>
       </thead>
       <tbody #row>
-      <tr mdbTableCol (rowCreated)="onRowCreate($event)" (rowRemoved)="onRowRemove($event)" *ngFor="let el of elements; let i = index">
-        <th *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex" scope="row">{{el.id}}</th>
-        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex" class="red-text">{{el.first}}</td>
-        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.last}}</td>
-        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{el.handle}}</td>
+      <tr mdbTableCol (rowCreated)="onRowCreate($event)" (rowRemoved)="onRowRemove($event)" *ngFor="let user of elements; let i = index" (click)="openModal(user)" style="cursor: pointer">
+<!--        <th *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex" scope="row">{{user.id}}</th>-->
+        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex" class="red-text">
+          {{user.firstName}}
+        </td>
+        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{user.lastName}}</td>
+        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{user.role}}</td>
+        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{user.country}}</td>
       </tr>
       </tbody>
       <tfoot class="grey lighten-5 w-100">

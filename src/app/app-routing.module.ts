@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {LoginComponent} from './components/login/login.component';
 import {LoginGuardService} from './components/login/login-guard.service';
 import {DashboardComponent} from './components/dashboard/dashboard.component';
+import {NotFountComponent} from './components/not-fount/not-fount.component';
 
 
 const routes: Routes = [
@@ -17,7 +18,11 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: '/'
+    redirectTo: '/notFound'
+  },
+  {
+    path: 'notFound',
+    component: NotFountComponent
   }
 ];
 

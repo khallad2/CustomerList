@@ -12,14 +12,23 @@ export class LoginComponent implements OnInit {
     email: '',
     password: ''
   };
+  public loginError: {hasError: boolean, error: string};
 
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService) {
+    this.loginError = {
+      hasError: false,
+      error: ''
+    };
+  }
 
   ngOnInit() {
   }
 
   signIn() {
     this.loginService.login(this.credentials.email);
+    this.loginService.loginError.subscribe(
+      res => this.loginError = res
+    );
   }
 
 }
