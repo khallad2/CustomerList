@@ -1,0 +1,22 @@
+<mdb-card>
+  <mdb-card-header>
+    <mdb-card-title>
+      <h4>{{firstName}}</h4>
+    </mdb-card-title>
+  </mdb-card-header>
+  <mdb-card-body>
+    <!--Title-->
+    <!--Text-->
+    <div class="row">
+      <div class="col-6 "><strong>full name:</strong> {{firstName + ' ' + lastName }}</div>
+      <div class="col-6 "><strong>Country:</strong> {{ country }}</div>
+      <div class="col-6 mt-5"><strong>Role:</strong> {{ role }}</div>
+      <div class="col-6 mt-5"><strong>Age:</strong> {{ age }}</div>
+      <div class="col-6 mt-5"><strong>Marital Status:</strong> {{ maritalStatus }}</div>
+      <div class="col-6 mt-5"><strong>Education:</strong> {{ education }}</div>
+
+    </div>
+  </mdb-card-body>
+  <a mdbBtn color="primary" (click)="modalRef.hide()" mdbWavesEffect>Close</a>
+
+</mdb-card>

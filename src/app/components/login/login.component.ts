@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
     email: '',
     password: ''
   };
+
   public loginError: {hasError: boolean, error: string};
 
   constructor(private loginService: LoginService) {
