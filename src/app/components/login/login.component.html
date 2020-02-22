@@ -1,5 +1,6 @@
-  <!-- Default form login -->
-  <form class="text-center border border-light p-5">
+<div class="flex-center">
+<!-- Default form login -->
+  <form class="text-center border border-light p-5 col-4 white">
 
     <p class="h4 mb-4">Sign in</p>
 
@@ -13,17 +14,17 @@
     <div class="d-flex justify-content-around">
       <div>
         <!-- Remember me -->
-        <mdb-checkbox [default]="true">Remember me</mdb-checkbox>
+        <mdb-checkbox ><small>Remember me</small></mdb-checkbox>
       </div>
       <div>
         <!-- Forgot password -->
-        <a href="" [ngClass]="{'red-text': loginError.hasError}">Forgot password?</a>
-        <p href="" class="text-danger flex-center" *ngIf="loginError.hasError">{{loginError.error}}</p>
+        <a href="" [ngClass]="{'animated flash slow 2s': loginError.hasError}"><small>Forgot password?</small></a>
+        <p class="text-danger flex-center " *ngIf="loginError.hasError"><small>{{loginError.error}}</small></p>
       </div>
     </div>
 
     <!-- Sign in button -->
-    <button mdbBtn color="info" block="true" class="my-4" type="button" (click)="signIn()">Sign in</button>
+    <button mdbBtn color="purple" block="true" class="my-4" type="button" (click)="signIn()">Sign in</button>
 <!--    <p><mdb-error *ngIf="loginError.hasError">{{loginError.error}}</mdb-error></p>-->
     <!-- Register -->
     <p>Not a member?
@@ -48,3 +49,4 @@
 
   </form>
   <!-- Default form login -->
+</div>

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import * as customerList from '../../customersData.json';
+import * as customerList from '../../fake-data/customersData.json';
 import {Observable, of} from 'rxjs';
 import {ICustomer} from '../../interfaces/ICustomer';
 
@@ -7,8 +7,8 @@ import {ICustomer} from '../../interfaces/ICustomer';
   providedIn: 'root'
 })
 export class DashboardService {
-
-  constructor() { }
+  originalCustomerList: any;
+  constructor() {}
 
   getCustomerList(): Observable<ICustomer[]> {
     console.log('customerList', customerList);

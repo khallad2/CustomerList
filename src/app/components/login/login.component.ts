@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {LoginService} from './login.service';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -22,11 +23,10 @@ export class LoginComponent implements OnInit {
     };
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   signIn() {
-    this.loginService.login(this.credentials.email);
+    this.loginService.login(this.credentials);
     this.loginService.loginError.subscribe(
       res => this.loginError = res
     );

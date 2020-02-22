@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {IUser} from '../../interfaces/IUser';
-import * as loginData from '../../loginData.json';
+import * as loginData from '../../fake-data/loginData.json';
 import {Router} from '@angular/router';
 import {BehaviorSubject} from 'rxjs';
 
@@ -18,20 +18,18 @@ export class LoginService {
     this.isLoggedIn = false;
   }
 
-  getUserByEmail(email: string) {
+  getUserByEmail(credentials: {email: string, password: string}) {
     const data: [] = loginData['default'];
     if (data.length === 0) { // if incoming Data is empty
       return this.loginError.next({ hasError: true, error: 'No Users retrieved'});
     } else { // incoming Data has at least 1 Object
-      // todo don't use [0]
-      return data.map((item: IUser) =>  item.email === email ? item : null );
+      return data.map((item: IUser) =>  (item.email === credentials.email && item.password === credentials.password) ? item : null );
     }
   }
 
-  login(email: string) {
-    const user = this.getUserByEmail(email);
+  login(credentials: {email: string, password: string}) {
+    const user = this.getUserByEmail(credentials);
     if (user[0] !== null) {
-      console.log('userIsExist', user);
       this.isLoggedIn = true;
       this.router.navigate(['/dashboard']);
     } else {

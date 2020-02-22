@@ -10,7 +10,7 @@ import {RouterModule} from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {FormsModule} from '@angular/forms';
 import {CustomerDetailsComponent} from './components/dashboard/customer-details/customer-details.component';
-import { NotFountComponent } from './components/not-fount/not-fount.component';
+import { NotFountComponent } from './components/not-found/not-fount.component';
 
 
 @NgModule({
