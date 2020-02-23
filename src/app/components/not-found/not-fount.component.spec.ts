@@ -26,6 +26,8 @@ describe('NotFountComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(NotFountComponent);
     component = fixture.componentInstance;
+    document.getElementById('svgImage').style.display = 'none'; // disable view images in unit testing
+    document.getElementById('svgImageBg').style.display = 'none'; // disable view images in unit testing
     fixture.detectChanges();
   });
 
