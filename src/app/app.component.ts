@@ -13,4 +13,9 @@ export class AppComponent {
       this.router.navigate(['']);
     }
   }
+
+  logout() {
+    this.loginService.isLoggedIn = false;
+    this.router.navigate(['']);
+  }
 }

@@ -12,6 +12,7 @@ import {strictEqual} from 'assert';
 
 export class LoginService {
   isLoggedIn: boolean;
+  loggedInUser: IUser;
   loginError: BehaviorSubject<{hasError: boolean, error: string}> =
     new BehaviorSubject<{hasError: boolean, error: string}>({hasError: false, error: ''});
 
@@ -39,6 +40,7 @@ export class LoginService {
     if (user.email === credentials.email && user.password === credentials.password) {
       this.isLoggedIn = true;
       this.router.navigate(['/dashboard']);
+      this.loggedInUser = user;
       return user;
     } else {
       this.isLoggedIn = false;
