@@ -21,12 +21,12 @@
       <div>
 
         <!-- Forgot password -->
-        <a href="" [ngClass]="{'animated flash slow 2s': loginError.hasError}">
+        <a href="">
           <small>Forgot password?</small>
         </a>
 
-        <p class="text-danger flex-center " *ngIf="loginError.hasError">
-          <small>{{loginError.error}}</small>
+        <p class="text-danger flex-center" *ngIf="loginError.hasError">
+          <small class="animated flash slow 2s">{{loginError.error}}</small>
         </p>
 
       </div>

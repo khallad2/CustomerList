@@ -3,15 +3,14 @@
     <h3 class="ml-5 col-8">Media Partisans</h3>
     <span class="float-right col-3 row green-text -align-right" *ngIf="loginService.isLoggedIn">
       <mdb-icon fas class="my-1" size="x" icon="user-check"></mdb-icon>
-      <small><p class="green-text m-2">{{loginService.loggedInUser.email}}</p></small>
+      <small><p class="green-text m-2">{{loginService.loggedInUser.name}} ({{loginService.loggedInUser.userName}})</p></small>
     </span>
     <span class="float-right col-1 row green-text -align-right"
           *ngIf="loginService.isLoggedIn" style="cursor: pointer" (click)="logout()">
       <p class="red-text m-1">logout</p>
     </span>
-    <span class="col-2 pl-5 red-text row" *ngIf="!loginService.isLoggedIn">
+    <span class="col-2 pl-5 red-text row" *ngIf="!loginService.isLoggedIn" [mdbTooltip]="'not logged in'">
       <mdb-icon class="my-1" fas size="x" icon="user-alt-slash"></mdb-icon>
-      <small><p class="red-text m-2">not logged in</p></small>
     </span>
   </div>
 </header>
