@@ -15,17 +15,10 @@ export class CustomerDetailsComponent implements OnInit {
   education: string;
   age: number;
   maritalStatus: string;
-  // action: Subject&lt; any&gt; = new Subject();
-  constructor(private modalRef: MDBModalRef) {
-    // this.heading = modalRef.content.heading;
-    // this.content = modalRef.content.content;
-  }
 
-  ngOnInit() {
-    // console.log('heading', this.heading);
-    // console.log('content', this.content);
+  constructor(private modalRef: MDBModalRef) {}
 
-  }
+  ngOnInit() {}
 
 
 }

@@ -4,7 +4,15 @@
     "name": "admin",
     "email": "khallad_3@hotmail.com",
     "password": "admin",
-    "role": [1, 2, 3, 4, 5, 6],
+    "role": "",
+    "status": "active"
+  },
+  {
+    "id": "1",
+    "name": "admin",
+    "email": "admin@admin.com",
+    "password": "admin",
+    "role": "",
     "status": "active"
   }
 ]

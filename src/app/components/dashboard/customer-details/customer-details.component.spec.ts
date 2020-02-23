@@ -32,4 +32,25 @@ describe('CustomerDetailsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render name of person in modal', async(() => {
+    const labelFixture = TestBed.createComponent(CustomerDetailsComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('h4').textContent).toBeDefined();
+  }));
+
+  it('should render Card', async(() => {
+    const labelFixture = TestBed.createComponent(CustomerDetailsComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('mdb-card').className).toEqual('z-depth-5 white card');
+  }));
+
+  it('should render Card body', async(() => {
+    const labelFixture = TestBed.createComponent(CustomerDetailsComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('mdb-card-body').className).toEqual('card-body');
+  }));
 });

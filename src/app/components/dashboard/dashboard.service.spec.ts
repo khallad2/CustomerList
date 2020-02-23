@@ -15,11 +15,11 @@ describe('DashboardService', () => {
 
   it('should be created', () => {
     const service: DashboardService = TestBed.get(DashboardService);
-    expect(service.getCustomerList().toPromise()).toBe(of(customerList['default']));
+    expect(service).toBeTruthy();
   });
 
-  it('should be created', () => {
+  it('should getCustomerList', () => {
     const service: DashboardService = TestBed.get(DashboardService);
-    expect(service).toBeTruthy();
+    expect(service.getCustomerList()).toBe((customerList['default']));
   });
 });

@@ -11,7 +11,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr mdbTableCol *ngFor="let el of elements" (click)="openModal(el)" style="cursor: pointer" class="white pl-5">
+  <tr mdbTableCol *ngFor="let el of elements" (click)="openModal(el)" style="cursor: pointer" class="white pl-5" mdbWavesEffect>
     <td >{{el.firstName}}</td>
     <td>{{el.lastName}}</td>
     <td>{{el.role}}</td>

@@ -3,6 +3,7 @@ import {IUser} from '../../interfaces/IUser';
 import * as loginData from '../../fake-data/loginData.json';
 import {Router} from '@angular/router';
 import {BehaviorSubject} from 'rxjs';
+import {strictEqual} from 'assert';
 
 
 @Injectable({
@@ -14,29 +15,35 @@ export class LoginService {
   loginError: BehaviorSubject<{hasError: boolean, error: string}> =
     new BehaviorSubject<{hasError: boolean, error: string}>({hasError: false, error: ''});
 
-  constructor(private router: Router) {
-    this.isLoggedIn = false;
-  }
+  constructor(private router: Router) {}
 
   getUserByEmail(credentials: {email: string, password: string}) {
     const data: [] = loginData['default'];
+    const user: IUser = {email: '', password: '', status: false, id: '', name: ''};
     if (data.length === 0) { // if incoming Data is empty
-      return this.loginError.next({ hasError: true, error: 'No Users retrieved'});
+       this.loginError.next({ hasError: true, error: 'No Users retrieved'});
+       return user;
     } else { // incoming Data has at least 1 Object
-      return data.map((item: IUser) =>  (item.email === credentials.email && item.password === credentials.password) ? item : null );
+      const x =  data.filter((item: IUser) =>
+        (item.email === credentials.email && item.password === credentials.password));
+      return (x.length > 0) ? x[0] : user;
     }
   }
 
+  /**
+   * Loi
+   * param credentials
+   */
   login(credentials: {email: string, password: string}) {
-    const user = this.getUserByEmail(credentials);
-    if (user[0] !== null) {
+    const user: IUser  = this.getUserByEmail(credentials);
+    if (user.email === credentials.email && user.password === credentials.password) {
       this.isLoggedIn = true;
       this.router.navigate(['/dashboard']);
+      return user;
     } else {
-      console.log('user is not exist', user);
-      this.loginError.next({ hasError: true, error: 'User Not Found'});
+      this.isLoggedIn = false;
+      this.loginError.next({ hasError: true, error: 'Wrong Login Credentials'});
     }
-
   }
 
 }

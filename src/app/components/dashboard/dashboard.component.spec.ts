@@ -57,16 +57,22 @@ describe('DashboardComponent', () => {
     // component.getCustomerData();
     // expect(component.elements).toEqual(elements);
   });
+
   it('should Close subscription', () => {
     component.ngOnDestroy();
     expect(component.subscription.closed).toEqual(true);
   });
 
-
-
   it('should revert table to original order', () => {
     component.revertToOriginalData();
     expect(component.elements).toEqual(component.originalElements);
   });
+
+  it('should render table body', async(() => {
+    const labelFixture = TestBed.createComponent(DashboardComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('table ').className).toEqual('p-4 table');
+  }));
 
 });

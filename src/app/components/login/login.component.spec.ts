@@ -8,6 +8,7 @@ import {LoginService} from './login.service';
 import {AppRoutingModule} from '../../app-routing.module';
 import {DashboardComponent} from '../dashboard/dashboard.component';
 import {NotFountComponent} from '../not-found/not-fount.component';
+import {CustomerDetailsComponent} from '../dashboard/customer-details/customer-details.component';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -31,4 +32,11 @@ describe('LoginComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render Login Form', async(() => {
+    const labelFixture = TestBed.createComponent(LoginComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('form')).toBeDefined();
+  }));
 });
