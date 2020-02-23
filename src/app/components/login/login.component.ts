@@ -10,7 +10,7 @@ import {LoginService} from './login.service';
 export class LoginComponent implements OnInit {
 
   public credentials = {
-    email: '',
+    userName: '',
     password: ''
   };
 

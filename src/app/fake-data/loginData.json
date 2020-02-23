@@ -2,6 +2,7 @@
   {
     "id": "1",
     "name": "admin",
+    "userName": "admin-admin1",
     "email": "admin@admin.com",
     "password": "admin",
     "status": "active"
@@ -9,6 +10,7 @@
   {
     "id": "2",
     "name": "admin",
+    "userName": "admin-admin2",
     "email": "khallad_3@hotmail.com",
     "password": "admin",
     "status": "active"
@@ -16,6 +18,7 @@
   {
     "id": "3",
     "name": "admin",
+    "userName": "admin-admin3",
     "email": "fa@fa.com",
     "password": "fafa",
     "status": "active"
